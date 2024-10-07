@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-nav">
+            <div class="box-1">
+
+                <img src="{% static 'image/bars.svg' %} " alt="" srcset="" class="icon">
+            </div>
+            <div class="box-2">
+
+                <img src="{% static 'image/logo.png' %} " alt="" srcset="" class="logo-img">
+            </div>
+            <div class="box-3"><img src="{% static 'image/output-onlinepngtools.png' %} " alt="" srcset="" class="cart-img"></div>
+
+        </div>
+        <div class="bottom-nav">
+            <input type="text" placeholder="Search for Product,Brands and More">
+        </div>
+    </header>
+    <div class="catagary">
+        <img src="{% static 'image/top-bg.jpg' %} " alt="" srcset="">
+    </div>
+    <div class="banner">
+        <div class="slider">
+            <div class="slider-container">
+                <div class="slide">
+                    <img src="{% static 'image/banner1.jpg' %}" alt="Slide 1" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'image/banner8.webp' %}" alt="Slide 2" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'image/banner3.png' %}" alt="Slide 3" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'image/banner4.png' %}" alt="Slide 4" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'image/banner5.png' %}" alt="Slide 5" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'image/banner6.png' %}" alt="Slide 6" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'image/banner7.png' %}" alt="Slide 7" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'image/banner2.webp' %}" alt="Slide 8" width="1920" height="320">
+                    <div class="caption">
+                        <!-- Add caption content if needed -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation buttons -->
+           
+
+            <!-- Pagination Dots -->
+            <div class="dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                <span class="dot" onclick="currentSlide(7)"></span>
+                <span class="dot" onclick="currentSlide(8)"></span>
+            </div>
+        </div>
+    </div>
+    <div class="offer-time">
+        <div class="timer-container">
+            <div class="bo1">
+
+                <p class="f1">Deals of the Day</p>
+                <div class="run-time">
+
+                    <div class="clock">
+
+                        <img src="{% static 'image/clock.svg' %} " alt="" srcset="">
+                    </div>
+                    <div id="timer"></div> <!-- Removed the default 20:00 to avoid incorrect initial display -->
+                </div>
+            </div>
+            <div class="bo2">
+                <button class="sale-btn">SALE IS LIVE</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="producet">
+        <ul class="pro-box">
+            {% for product in products %}
+            <li>  <a href="{% url 'product_detail' product.slug %}" style="color: inherit; text-decoration: none;"> <div class="box-l1">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" srcset="">
+            </div>
+
+            <!-- Product Details -->
+            <div class="box-l2">
+                <!-- Product Name -->
+                <div class="mini-box1">
+                    <p class="f2">{{ product.name }}</p>
+                </div>
+
+                <!-- Product Discount and Original Price -->
+                <div class="mini-box2">
+                    <p class="f3">{{ product.discount|floatformat:0 }}% Off &nbsp;&nbsp;&nbsp;<span class="sp1">₹ {{ product.actual_price|floatformat:0 }}</span></p>
+                </div>
+
+                <!-- Product Discounted Price and QR Code -->
+                <div class="mini-box3">
+                    <div class="box1">₹ {{ product.excat_price|floatformat:0 }}</div>
+                    <div class="box2">
+                        <!-- Assuming the QR code image here, replace if needed -->
+                        <img src="{% static 'image/SwOvZ3r.png' %}" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delivery Information -->
+            <div class="box-l3">Free Delivery in Two Days</div>
+        </a>
+            </li>
+            {% empty %}
+            <p>No products available.</p>
+            {% endfor %}
+            
+           
+        </ul>
+    </div>
+    <script src="{% static 'javascripts/scripts.js' %} "></script>
+</body>
+
+</html>

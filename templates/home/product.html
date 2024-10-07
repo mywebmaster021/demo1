@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %} ">
+    <title>{{ product.name }}</title>
+</head>
+
+<body>
+    <header>
+        <div class="right-nav">
+            <img src="{% static 'image/pngtree-vector-back-icon-png-image_947168-removebg-preview.png' %} " alt="" srcset="" class="im1">
+            <img src="{% static 'image/logo.png' %} " alt="" srcset="" class="im2">
+
+        </div>
+        <div class="left-nav">
+<img src="{% static 'image/images-removebg-preview.png' %} " alt="" srcset="" class="im1">
+<img src="{% static 'image/output-onlinepngtools.png' %} " alt="" srcset="" class="im2">
+        </div>
+    </header>
+
+    <div class="product-img">
+        <img src="{{ product.image.url }}" alt="" srcset="" class="im3">
+        <img src="{% static 'image/Screenshot 2024-10-01 225447.png' %} " alt="" sizes="" srcset="" class="im4">
+        <div class="checkbox-container">
+            <img src="{% static 'image/Screenshot 2024-10-01 230751.png' %} " alt="" srcset="">
+        </div>
+    </div>
+    <div class="selcet-pro">
+        <p class="f10"><b>Select {{ product.product_type }}</b> </p>
+        <button type="button" class="b10">{{ product.product_capacity }}</button>
+    </div>
+    <div class="pro-dis">
+        <div class="box10">{{ product.name }}</div>
+        <div class="box11"><img src="{% static 'image/plue-fassured.png' %} " alt="" srcset=""></div>
+        <div class="box12"><p>{{ product.discount|floatformat:0 }}% off <span class="sp2">₹ {{ product.actual_price }}</span><span class="sp3">₹{{ product.excat_price }}</span></p></div>
+    </div>
+    <div class="box15">Offer ends in</div>
+    <div class="pay-img"><img src="{% static 'image/pay-latter.png' %} " alt="" srcset="" ></div>
+
+    <div class="no-box">
+        <div class="no-box1">
+            <div class="mb1"><img src="{% static 'image/replacement.png' %} " alt="" srcset="" class="center"></div>
+            <div class="mb2">7 days Replacement</div>
+        </div>
+        <div class="no-box2">
+            <div class="mb1"><img src="{% static 'image/non-cod.png' %} " alt="" srcset="" class="center"></div>
+            <div class="mb2">No Cash On Delivery</div>
+        </div>
+        <div class="no-box3" style="padding-top: 10px;">
+            <div class="mb1"><img src="{% static 'image/plue-fassured.png' %} " alt="" srcset="" style="width: 80px; height: 20px;" class="center"></div>
+            <div class="mb2">Plus (F-Assured)</div>
+        </div>
+    </div>
+    <div class="main">
+        <img src="{{ product.description_image.url }}" alt="" srcset="">
+    </div>
+    <form class="bottom-buy"  method="POST" action="{% url 'addrase' %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="select_product">
+    <input type="hidden" name="product_slug" value="{{ product.slug }}">
+        <button type="submit" style="width:100%;display:flex; background: transparent;border: none;height: 100%;align-items: center;font-size: 16px;"><div class="add-to">Add to Cart</div>
+        <div class="buy">Buy Now</div>
+        </button>
+    </form>
+    
+    <footer></footer>
+</body>
+
+</html>

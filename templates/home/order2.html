@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+    <header>
+        
+        <div class="top-nav">
+            <img src="{% static 'image/back.png' %}" alt="">
+            <p class="f21">Order Summary</p>
+        </div>
+        <div class="bottom-nav-1">
+            <img src="{% static 'image/progress-indicator-summary.png' %}" alt="">
+        </div>
+    </header>
+
+    <!-- Display Delivery Address -->
+    <!-- Display Delivery Address -->
+<div class="delivary">
+    <div class="tex1">Delivered to:</div>
+    {% if order_data %}
+        <div class="tex2">Name: {{ order_data.full_name }}</div>
+        <div class="tex3">
+            Address: {{ order_data.house_no }}, {{ order_data.road_name }},
+            {{ order_data.city }}, {{ order_data.state }},
+            {{ order_data.pincode }}
+        </div>
+        <div class="tex4">Contact Number: {{ order_data.mobile_number }}</div>
+    {% else %}
+        <div class="tex2">Name: Not Provided</div>
+        <div class="tex3">Address: Not Provided</div>
+        <div class="tex4">Contact Number: Not Provided</div>
+    {% endif %}
+</div>
+
+
+    <!-- Display Selected Product -->
+    <div class="product-order-box">
+        {% if selected_product %}
+            <div class="top-bo">
+                <div class="pro-bo1">
+                    <img src="{{ selected_product.image.url }}" alt="{{ selected_product.name }}">
+                </div>
+                <div class="pro-bo2">
+                    <div class="mi-pro-bo1">{{ selected_product.name }}</div>
+                    <div class="mi-pro-bo2"><img src="{% static 'image/SwOvZ3r.png' %} " alt="" srcset=""></div>
+                </div>
+            </div>
+            <div class="bottom-bo">
+                <div class="pro-bo11">Qty: 1</div>
+                <div class="pro-bo12"><p class="f100">{{ selected_product.discount|floatformat:0 }}% <span class="sp100">{{ selected_product.actual_price|floatformat:0 }}</span><span class="sp200">₹{{ selected_product.excat_price }}</span></p></div>
+            </div>
+        {% else %}
+            <div class="top-bo">
+                <p>No product selected.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Price Details -->
+    <div class="price-deta">
+        <div class="boxprice1">Price Details</div>
+        <div class="boxprice2">
+            <ul>
+                <li>
+                    <div class="pri-li1">Price (1 item)</div>
+                    <div class="pri-li2">₹{{ selected_product.actual_price }}</div>
+                </li>
+                <li>
+                    <div class="pri-li1">Discount</div>
+                    <div class="pri-li2"><span class="sp201">₹{{ selected_product.discount_cut_price }}</span></div>
+                </li>
+                <li>
+                    <div class="pri-li1">Delivery Charges</div>
+                    <div class="pri-li2"><span class="sp201">FREE Delivery</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="boxprice3">
+            <div class="to1">Total Amount</div>
+            <div class="to2">₹{{ selected_product.excat_price }}</div>
+        </div>
+        <div class="boxprice4"><span class="sp201"> You save ₹{{ selected_product.discount_cut_price }} on this order</span></div>
+    </div>
+    <div class="secure">
+        <div class="seimg"><img src="{% static 'image/secure.jpg' %} " alt="" srcset=""></div>
+        <div class="setext">Safe and secure payments. Easy <br>returns. 100% Authentic products.
+        </div>
+    </div>
+
+    <div class="price-contanu">
+        <div class="price-bottom">
+            <p>
+                <span class="sp222">₹{{ selected_product.actual_price }}</span><br>
+                <span class="sp223">₹{{ selected_product.excat_price }}</span>
+    
+            </p>
+        </div>
+        <div class="price-conta">
+            <form method="POST" action="{% url 'payment' %}">
+                {% csrf_token %}
+                <button type="submit" class="con-box">Continue</button>
+            </form>
+            
+        </div>
+    </div>
+    <footer></footer>
+</body>
+</html>

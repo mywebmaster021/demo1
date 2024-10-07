@@ -1,0 +1,363 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    max-width: 1920px;
+    margin: auto;
+}
+header {
+    /* height: 115px; */
+    background-color: white; /* Change as needed */
+    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); */
+}
+
+.top-nav{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0px 5px;
+    padding-top: 0px;
+    border-bottom: 2px solid #f1f2f4;
+}
+.top-nav img{
+height: 18px;
+
+}
+.top-nav p{
+    padding-left: 15px;
+    font-size: 17px;
+    padding-top: 2px;
+}
+.bottom-nav{
+    padding: 0 12%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 5px solid #f1f2f4;
+    
+}
+.bottom-nav img{
+    width: 100%;
+    height: auto;
+    
+}
+
+
+
+/* timer bar */
+.offer-timer{
+    padding: 20px 0px;
+    height: 340px;
+    border-bottom: 5px solid #f1f2f4;
+}
+.timer-text{
+    font-size: 16px;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+}
+.container {
+    text-align: center;
+    width: 250px; /* Set a width for the container */
+    margin: auto;
+}
+
+.timer-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e6e6e6; /* Background color */
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden; /* Hide overflow for inner bar */
+
+}
+
+.inner-bar {
+    height: 100%;
+    background-color: #007bff; /* Inner bar color */
+    transition: width 1s linear; /* Smooth transition for the bar */
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1; /* Ensure the text is on top */
+}
+
+#timeCount {
+    position: absolute; /* Positioning the timer text */
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Offset the text */
+    color: rgb(0, 0, 0); /* Set text color to black */
+    font-weight: bold; /* Make text bold */
+    z-index: 2; /* Ensure the text is above the inner bar */
+}
+
+.time-display {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.payment-option {
+    display: flex; /* Use flex for alignment */
+    align-items: center; /* Center align items vertically */
+    margin-bottom: 15px; /* Space between payment options */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+.logo {
+    width: 40px; /* Logo width */
+    height: 40px; /* Logo height */
+    margin-right: 10px; /* Space between logo and text */
+    margin-left: 10px; /* Space between logo and text */
+}
+/* Hide the default radio button */
+input[type="radio"] {
+    display: none; 
+}
+/* Custom radio button styling */
+.custom-radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 35px; /* Space for the custom radio */
+    cursor: pointer; /* Pointer cursor */
+}
+/* Outer circle of the radio button */
+.custom-radio::before {
+    content: '';
+    position: absolute;
+    left: 0; /* Position it to the left */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Center it vertically */
+    width: 18px; /* Outer circle width */
+    height: 18px; /* Outer circle height */
+    border: 1px solid #4b4c4d; /* Border color */
+    border-radius: 50%; /* Make it circular */
+    background-color: transparent; /* Default background color */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+/* Inner dot of the radio button */
+.custom-radio::after {
+    content: '';
+    position: absolute;
+    left: 5.4px; /* Position of inner dot */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%) scale(0); /* Initially hidden */
+    width: 10px; /* Inner dot width */
+    height: 10px; /* Inner dot height */
+    border-radius: 50%; /* Make it circular */
+    background-color: white; /* Inner dot color */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+/* Checked state: inner dot expands */
+input[type="radio"]:checked + .custom-radio::after {
+    transform: translateY(-50%) scale(1); /* Show inner dot */
+}
+/* Change background color when checked */
+input[type="radio"]:checked + .custom-radio::before {
+    background-color: #0d6efd; /* Selected color */
+    box-shadow: 0 0 8px rgba(13, 110, 253, 0.8); /* Glowing effect */
+}
+/* Style for the continue button */
+.continue-button {
+    padding: 10px 20px; /* Button padding */
+    background-color: #0d6efd; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Round the corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Button text size */
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+.continue-button:hover {
+    background-color: #0a58ca; /* Darker shade on hover */
+}
+        /* Style for the continue button */
+
+.Payments{
+    border: 2px solid #f1f2f4;
+    border-radius: 5px;
+    padding: 15px 10px;
+    margin-top: 40px;
+}
+
+
+
+.price-deta{
+    padding: 20px 15px ;
+}
+
+.boxprice1{
+    font-size: 18px ;
+    font-weight: bold;
+
+
+}
+.boxprice2{
+    padding: 10px 0px;
+}
+.boxprice2 ul li{
+    padding: 10px 0px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+.boxprice3{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+    border-top: 1px solid #f1f2f4;
+    border-bottom: 1px solid #f1f2f4;
+    margin-top: 10px;
+}
+.boxprice4{
+    font-size: 14px;
+    padding: 15px 0px 0px 0px;
+}
+.sp201{
+    color: #008c00;
+}
+
+
+/* secure  */
+.secure{
+    display: flex;
+    background-color: rgb(241, 243, 246);
+    padding: 20px 0px;
+    justify-content: center;
+    align-items: center;
+}
+.seimg img{
+    height: 35px;
+    width: 30px;
+}
+.setext{
+    font-size: 12px;
+    padding-left: 10px;
+    line-height: 16px;
+}
+
+
+/* bottom fix */
+.price-contanu{
+    position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+         background-color: white;
+         border-top: 2px solid rgb(241, 243, 246);
+         padding: 15px ;
+         display: flex;
+         justify-content: space-between;
+}
+.sp222{
+    text-decoration: line-through;
+    font-weight: 400;
+    color: rgb(117, 117, 117);
+    font-size: 14px;
+}
+.sp223{
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.con-box{
+    height: 40px;
+    width: 170px;
+    background-color: #ffc200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin-right: 30px;
+}
+footer{
+    height: 80px;
+}
+.simg img{
+    width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+/* last popup */
+#popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    overflow: auto; /* Enable scroll if needed */
+    
+}
+
+.popup-content {
+    position: absolute;
+    top: 40%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half width and height */
+    background-color: white; /* White background for the popup content */
+    color: black; /* Black text color */
+    text-align: center;
+    max-width: 90%; /* Limit width */
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding-top: 40px;
+ 
+    position: relative; /* So the close button stays inside */
+}
+
+/* Updated Close Button Styling */
+.close {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: #f26522;
+    color: white;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.close:hover {
+    background-color: #d15519;
+}
+
+.popup-content img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+a.button-link {
+    padding: 10px 20px;
+    background-color: #fb641b;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+a.button-link:hover {
+    background-color: #d15519;
+}

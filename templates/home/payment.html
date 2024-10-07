@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style3.css' %} ">
+    
+</head>
+
+<body>
+    <header></header>
+    <div class="top-nav">
+        <img src="{% static 'image/back.png' %} " alt="" srcset="">
+        <p class="f21">Payments</p>
+    </div>
+    <div class="bottom-nav"><img src="{% static 'image/payment.png' %} " alt="" srcset=""></div>
+    </header>
+    <div class="offer-timer">
+        <div class="timer-text">Offer ends in</div>
+        <div class="container">
+            <div class="timer-bar">
+                <div class="inner-bar" id="innerBar">
+                    <span id="timeCount">5:00</span> <!-- Time count displayed inside the bar -->
+                </div>
+            </div>
+            <div class="time-display" id="timeDisplay"></div> <!-- Optional display below the bar -->
+        </div>
+        <div class="Payments">
+        <div class="payment-option">
+            <input type="radio" id="bhim-upi" name="payment" value="" checked>
+            <label for="bhim-upi" class="custom-radio">
+                <img src="{% static 'image/bhim.svg' %} " alt="BHIM UPI" class="logo">
+                BHIM UPI
+            </label>
+        </div>
+        <div class="payment-option">
+            <input type="radio" id="phonepe" name="payment" value="">
+            <label for="phonepe" class="custom-radio">
+                <img src="{% static 'image/phonepe.svg' %} " alt="Phonepe" class="logo">
+                Phonepe
+            </label>
+        </div>
+        <div class="payment-option">
+            <input type="radio" id="paytm" name="payment" value="">
+            <label for="paytm" class="custom-radio">
+                <img src="{% static 'image/paytm.svg' %} " alt="Paytm" class="logo">
+                Paytm
+            </label>
+        </div>
+    
+    </div>
+</div>
+
+
+    <div class="price-deta">
+        <div class="boxprice1">Price Details</div>
+        <div class="boxprice2">
+            <ul>
+                <li>
+                    <div class="pri-li1">Price (1 item)</div>
+                    <div class="pri-li2">₹{{ selected_product.actual_price }}</div>
+                </li>
+            
+                <li>
+                    <div class="pri-li1">Delivery Charges</div>
+                    <div class="pri-li2"><span class="sp201">FREE Delivery</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="boxprice3">
+            <div class="to1">Amount Payable</div>
+            <div class="to2">₹{{ selected_product.excat_price }}</div>
+        </div>
+       
+    </div>
+    <div class="simg"><img src="{% static 'image/secure.png' %} " alt="" srcset=""></div>
+    <div class="simg"><img src="{% static 'image/safety-label-badge.jpg' %} " alt="" srcset=""></div>
+    
+    
+    
+    
+    <div class="price-contanu">
+        <div class="price-bottom">
+            <p>
+                <span class="sp222">₹{{ selected_product.actual_price }}</span><br>
+                <span class="sp223">₹{{ selected_product.excat_price }}</span>
+    
+            </p>
+        </div>
+        <div class="price-conta">
+            <div class="con-box"> <button class="continue-button" id="continue-button" style="background-color: transparent; padding: 0px; margin: 0px; color: black;">Continue</button></div>
+        </div>
+    </div>
+    <div id="popup">
+        <div class="popup-content">
+            <button class="close" id="closePopup">&times;</button>
+            <img src="{{ selected_product.qrcode_image.url }}" alt="UPI QR Code">
+            <a href="{{ selected_product.payment_link }}" class="button-link">Continue</a>
+        </div>
+    </div>
+    <footer></footer>
+
+    <script src="{% static 'javascripts/timer.js' %} "></script>
+    <script src="{% static 'javascripts/payment.js' %} "></script>
+</body>
+
+</html>
